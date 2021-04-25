@@ -136,6 +136,7 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
         if(this.head == null) {
             this.head.setNext(temp);
             temp.setNext(this.tail);
+            this.tail.setPrev(temp);
             this.tail.setNext(null);
             nelems++;
             // implementation of adding the new data
@@ -273,17 +274,18 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
      */
     @Override
     public T remove(int index) throws IndexOutOfBoundsException {
-        if (index < 0 || index > this.nelems-1) {
+        if (index < 0 || index > this.nelems) {
             throw new IndexOutOfBoundsException();
         }
         // TODO: Fill in implementation to get the node at index
         Node nodeCur = this.head;
-        for (int i = 1; i < index; i++) {
+        for (int i = 0; i < index; i++) {
             nodeCur  = nodeCur .getNext();
         }
         // nodeCur points to the node before the insert point
         T content = nodeCur.getElement();
         nodeCur.remove();
+        this.nelems--;
         return content;
     }
 

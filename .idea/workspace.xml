@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c2f0876-96b9-46da-b221-43720c50a551" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dsc30-pa4.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/dsc30-pa4/DoublyLinkedList$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/dsc30-pa4/DoublyLinkedList$Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/dsc30-pa4/DoublyLinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/dsc30-pa4/DoublyLinkedList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/dsc30-pa4/DoublyLinkedListTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/dsc30-pa4/DoublyLinkedListTest.class" afterDir="false" />
@@ -31,15 +35,21 @@
     <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
@@ -69,6 +79,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DoublyLinkedListTest.add1Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dsc30-pa4" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DoublyLinkedListTest" />
+      <option name="METHOD_NAME" value="add1Test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DoublyLinkedListTest.add2Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dsc30-pa4" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DoublyLinkedListTest" />
+      <option name="METHOD_NAME" value="add2Test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DoublyLinkedListTest.addTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="dsc30-pa4" />
       <option name="PACKAGE_NAME" value="" />
@@ -82,6 +112,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.DoublyLinkedListTest.addTest" />
+        <item itemvalue="JUnit.DoublyLinkedListTest.add2Test" />
+        <item itemvalue="JUnit.DoublyLinkedListTest.add1Test" />
         <item itemvalue="JUnit.DoublyLinkedListTest" />
         <item itemvalue="JUnit.DoublyLinkedListTest.add" />
       </list>
@@ -108,5 +140,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
