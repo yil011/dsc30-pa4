@@ -1,13 +1,12 @@
 /*
- * NAME: TODO
- * PID: TODO
+ * NAME: Yifan Li
+ * PID: A16669790
  */
 
 /**
- * TODO
- *
- * @author TODO
- * @since TODO
+ * class of RoundRobin
+ * @author Yifan Li
+ * @since 04/23/2021
  */
 public class RoundRobin {
 
@@ -19,16 +18,35 @@ public class RoundRobin {
     private int quantum, burstTime, waitTime;
 
     public RoundRobin(Task[] toHandle) {
-        /* TODO */
+        new RoundRobin(4, toHandle);
     }
 
     public RoundRobin(int quantum, Task[] toHandle) {
-        /* TODO */
+        if (quantum < 1 ||toHandle == null) {
+            throw new IllegalArgumentException();
+        }
+        this.waitlist = new DoublyLinkedList<Task>();
+        for (Task task: toHandle) {
+            this.waitlist.add(task);
+        }
+        this.finished = new DoublyLinkedList<Task>();
+        this.quantum = quantum;
+
+
     }
 
     public String handleAllTasks() {
-        /* TODO */
-        return null;
+        if(this.waitlist.isEmpty()) {
+            return TASK_HANDLED;
+        }
+        for (Task task: this.waitlist) {
+            for(int i = 0; i < this.quantum; i++) {
+                if(task.handleTask()) {
+                    
+                }
+            }
+        }
+
     }
 
     /**

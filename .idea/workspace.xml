@@ -3,15 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5c2f0876-96b9-46da-b221-43720c50a551" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/dsc30-pa4/DLLQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/dsc30-pa4/DLLQueue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/dsc30-pa4/DLLStack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/dsc30-pa4/DLLStack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/dsc30-pa4/DoublyLinkedList$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/dsc30-pa4/DoublyLinkedList$Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/dsc30-pa4/DoublyLinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/dsc30-pa4/DoublyLinkedList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/dsc30-pa4/DoublyLinkedListTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/dsc30-pa4/DoublyLinkedListTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DLLQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DLLQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DLLStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DLLStack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DoublyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DoublyLinkedList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DoublyLinkedListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DoublyLinkedListTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RoundRobin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RoundRobin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,52 +56,48 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DoublyLinkedListTest.stackTest">
-    <configuration name="DoublyLinkedListTest.DLLQueueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.RoundRobin">
+    <configuration name="RoundRobin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="RoundRobin" />
+      <module name="dsc30-pa4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DoublyLinkedListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="dsc30-pa4" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="DoublyLinkedListTest" />
-      <option name="METHOD_NAME" value="DLLQueueTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DoublyLinkedListTest.add1Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dsc30-pa4" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DoublyLinkedListTest" />
+      <option name="METHOD_NAME" value="add1Test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DoublyLinkedListTest.addTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DoublyLinkedListTest.que2Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="dsc30-pa4" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="DoublyLinkedListTest" />
-      <option name="METHOD_NAME" value="addTest" />
+      <option name="METHOD_NAME" value="que2Test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DoublyLinkedListTest.queTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DoublyLinkedListTest.que3Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="dsc30-pa4" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="DoublyLinkedListTest" />
-      <option name="METHOD_NAME" value="queTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DoublyLinkedListTest.stack1Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="dsc30-pa4" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DoublyLinkedListTest" />
-      <option name="METHOD_NAME" value="stack1Test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DoublyLinkedListTest.stackTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="dsc30-pa4" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DoublyLinkedListTest" />
-      <option name="METHOD_NAME" value="stackTest" />
+      <option name="METHOD_NAME" value="que3Test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -113,11 +105,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DoublyLinkedListTest.stackTest" />
-        <item itemvalue="JUnit.DoublyLinkedListTest.stack1Test" />
-        <item itemvalue="JUnit.DoublyLinkedListTest.queTest" />
-        <item itemvalue="JUnit.DoublyLinkedListTest.DLLQueueTest" />
-        <item itemvalue="JUnit.DoublyLinkedListTest.addTest" />
+        <item itemvalue="Application.RoundRobin" />
+        <item itemvalue="JUnit.DoublyLinkedListTest.que3Test" />
+        <item itemvalue="JUnit.DoublyLinkedListTest.que2Test" />
+        <item itemvalue="JUnit.DoublyLinkedListTest" />
+        <item itemvalue="JUnit.DoublyLinkedListTest.add1Test" />
       </list>
     </recent_temporary>
   </component>

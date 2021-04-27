@@ -57,6 +57,8 @@ public class DoublyLinkedListTest {
         assertTrue(t.isEmpty());
         t.add(new Integer(1));
         assertEquals(1,t.size());
+        t.add(new Integer(3));
+        assertEquals(new Integer(3), t.get(1));
 
 
 
@@ -126,15 +128,23 @@ public class DoublyLinkedListTest {
         assertEquals(new Integer(5), s.peek());
         System.out.println(s.size());
         s.push(new Integer(1));
-        assertEquals(new Integer(1), s.pop());
+        s.push(new Integer(2));
+        s.push(new Integer(4));
+        assertEquals(new Integer(4), s.pop());
         System.out.println(s.size());
         assertTrue(q.isEmpty());
-        s.push(new Integer(4));
-        assertFalse(s.isEmpty());
-        s.push(new Integer(9));
+        //s.push(new Integer(9));
+        assertEquals(new Integer(2), s.pop());
         System.out.println(s.size());
-        assertEquals(3,s.size());
-        //assertEquals(new Integer(9), s.pop());
+        assertEquals(new Integer(1), s.pop());
+        s.pop();
+        assertTrue(s.isEmpty());
+
+
+        //s.peek();
+        //System.out.println(s.size());
+
+        //assertEquals(2,s.size());
         //assertEquals(new Integer(4), s.peek());
         //System.out.println(q.size());
         /*
@@ -158,8 +168,16 @@ public class DoublyLinkedListTest {
     public void stack1Test() {
         s.push(null);
     }
-    @org.junit.Test
-    public void testAdd() {
+
+    @Test(expected = NullPointerException.class)
+    public void que2Test() {
+        t.add(new Integer(1));
+        t.set(0, null);
+    }
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void que3Test() {
+        t.add(new Integer(1));
+        t.set(2, new Integer(2));
     }
 
     @org.junit.Test
