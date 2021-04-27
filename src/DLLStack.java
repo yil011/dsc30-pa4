@@ -26,6 +26,7 @@ public class DLLStack<T> {
     }
     /**
      * A method that checks if the stack is empty
+     *
      * @return true if empty, otherwise false
      */
     public boolean isEmpty() {
@@ -33,6 +34,7 @@ public class DLLStack<T> {
     }
     /**
      * A method that pushes the given data.
+     *
      * @param data the given element
      * @throws IllegalArgumentException if data is null
      */
@@ -45,25 +47,27 @@ public class DLLStack<T> {
     /**
      * A method that pops the given data.
      * Return null of size is 0
+     *
      * @return the element
      */
     public T pop() {
         if (this.size() == 0) {
             return null;
         }
-        T result = this.stack.remove(this.size()-1);
+        T result = this.stack.remove(this.size() - 1);
         return result;
     }
     /**
      * A method that pops the given data.
      * Return null of size is 0
+     *
      * @return the element
      */
     public T peek() {
         if (this.size() == 0) {
             return null;
         }
-        T result = this.stack.get(this.size()-1);
+        T result = this.stack.get(this.size() - 1);
         return result;
     }
 

@@ -26,6 +26,7 @@ public class DLLQueue<T> {
     }
     /**
      * A method that checks if the stack is empty
+     *
      * @return true if empty, otherwise false
      */
     public boolean isEmpty() {
@@ -33,6 +34,7 @@ public class DLLQueue<T> {
     }
     /**
      * A method that enqueues the given data.
+     *
      * @param data the given element
      * @throws IllegalArgumentException if data is null
      */
@@ -45,6 +47,7 @@ public class DLLQueue<T> {
     /**
      * A method that pops the given data.
      * Return null of size is 0
+     *
      * @return the element
      */
     public T dequeue() {
@@ -57,6 +60,7 @@ public class DLLQueue<T> {
     /**
      * A method that pops the given data.
      * Return null of size is 0
+     *
      * @return the element
      */
     public T peek() {

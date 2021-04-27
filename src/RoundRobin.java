@@ -16,37 +16,103 @@ public class RoundRobin {
     /* instance variables */
     private DoublyLinkedList<Task> waitlist, finished;
     private int quantum, burstTime, waitTime;
-
+    /**
+     * Constructor of RoundRobin
+     */
     public RoundRobin(Task[] toHandle) {
-        new RoundRobin(4, toHandle);
+        // call another constructor
+        this(4, toHandle);
     }
-
+    /**
+     * Constructor of RoundRobin
+     * @param quantum the size of quantum
+     * @param toHandle the task list
+     * @throws IllegalArgumentException if quantum is less than
+     * 1, toHandle is null or no element in toHandle list
+     */
     public RoundRobin(int quantum, Task[] toHandle) {
-        if (quantum < 1 ||toHandle == null) {
+        // check for exceptions
+        if (quantum < 1 || toHandle == null || toHandle.length == 0) {
             throw new IllegalArgumentException();
         }
+        // initialize the waitlist
         this.waitlist = new DoublyLinkedList<Task>();
         for (Task task: toHandle) {
             this.waitlist.add(task);
         }
+        // initialize the finished list
         this.finished = new DoublyLinkedList<Task>();
         this.quantum = quantum;
-
-
     }
-
+    /**
+     * A method that handles all tasks
+     * @return String return a string with burst time,
+     * wait time and the list of task information
+     */
     public String handleAllTasks() {
-        if(this.waitlist.isEmpty()) {
+        // return String if no elements in waitlist
+        if (this.waitlist.isEmpty()) {
             return TASK_HANDLED;
         }
-        for (Task task: this.waitlist) {
-            for(int i = 0; i < this.quantum; i++) {
-                if(task.handleTask()) {
-                    
+        // set counters for the loop below
+        int waitCount = 0;
+        int currSize;
+        // create temporary list to store unfinished tasks
+        DoublyLinkedList<Task> temp = new DoublyLinkedList<Task>();
+        while (this.waitlist.size() != 0) {
+            // reassign value of size
+            currSize = this.waitlist.size();
+            for (int a = 0; a < this.waitlist.size(); a++) {
+                // assign curT
+                Task curT =  this.waitlist.get(a);
+                for (int i = 0; i < this.quantum; i++) {
+                    // check if curT is finished
+                    if (!curT.isFinished()) {
+                        curT.handleTask();
+                        // add to time counters
+                        this.burstTime++;
+                        waitCount++;
+                    }
+                }
+                currSize--;
+                // calculate the waittime for this round
+                this.waitTime += (currSize
+                        + temp.size()) * waitCount;
+                //reset waitCount
+                waitCount = 0;
+                if (curT.isFinished()) {
+                    this.finished.add(curT);
+                } else {
+                    temp.add(curT);
                 }
             }
+            // clear waitList and assign it with tasks stored
+            //in the temp list
+            this.waitlist.clear();
+            for (Task ele: temp) {
+                this.waitlist.add(ele);
+            }
+            // clear temp for reuse purpose in next round
+            temp.clear();
         }
-
+        // format the return string
+        String strEnd = "";
+        // collect all tasks' information
+        for (int i = 0; i < this.finished.size(); i++) {
+            if (i != this.finished.size() - 1) {
+                strEnd += this.finished.get(i).toString();
+                strEnd +=  " -> ";
+            } else {
+                strEnd += this.finished.get(i).toString();
+            }
+        }
+        // format the burstTime and waitTime
+        String burst = String.valueOf(this.burstTime);
+        String wait = String.valueOf(this.waitTime);
+        String strFront = "All tasks are handled within " + burst
+                + " units of burst time and " + wait + " units of wait time. "
+                + "The tasks are finished in this order:\n";
+        return strFront + strEnd;
     }
 
     /**

@@ -6,14 +6,11 @@ import static org.junit.Assert.*;
 public class DoublyLinkedListTest {
     //global variables
     AbstractList<Integer> t;
-    DLLQueue<Integer> q;
-    DLLStack<Integer> s;
+
     @Before
     public void setUp() {
 
         t = new DoublyLinkedList();
-        q = new DLLQueue<>();
-        s = new DLLStack<>();
 
     }
     @org.junit.Test
@@ -59,12 +56,7 @@ public class DoublyLinkedListTest {
         assertEquals(1,t.size());
         t.add(new Integer(3));
         assertEquals(new Integer(3), t.get(1));
-
-
-
         //assertEquals(1,t.size());
-
-
     }
     @Test(expected = NullPointerException.class)
     public void add1Test() {
@@ -96,79 +88,6 @@ public class DoublyLinkedListTest {
     public void set1Test() {
         t.set(0,null);
     }
-
-    @Test
-    public void DLLQueueTest() {
-        assertTrue(q.isEmpty());
-        q.enqueue(new Integer(5));
-        //System.out.println(q.size());
-        assertEquals(1, q.size());
-        assertEquals(new Integer(5), q.peek());
-        q.enqueue(new Integer(1));
-        assertEquals(new Integer(5), q.dequeue());
-        //System.out.println(q.size());
-        assertEquals(new Integer(1), q.dequeue());
-        //assertFalse(q.isEmpty());
-        q.enqueue(new Integer(4));
-        System.out.println(q.size());
-        //assertEquals(new Integer(4), q.dequeue());
-        System.out.println(q.size());
-        q.enqueue(new Integer(9));
-        System.out.println(q.size());
-        assertEquals(new Integer(4), q.dequeue());
-        assertEquals(new Integer(9), q.peek());
-        //assertEquals(new Integer(2), q.dequeue());
-    }
-    @Test
-    public void stackTest() {
-        assertTrue(s.isEmpty());
-        s.push(new Integer(5));
-        //System.out.println(q.size());
-        assertEquals(1, s.size());
-        assertEquals(new Integer(5), s.peek());
-        System.out.println(s.size());
-        s.push(new Integer(1));
-        s.push(new Integer(2));
-        s.push(new Integer(4));
-        assertEquals(new Integer(4), s.pop());
-        System.out.println(s.size());
-        assertTrue(q.isEmpty());
-        //s.push(new Integer(9));
-        assertEquals(new Integer(2), s.pop());
-        System.out.println(s.size());
-        assertEquals(new Integer(1), s.pop());
-        s.pop();
-        assertTrue(s.isEmpty());
-
-
-        //s.peek();
-        //System.out.println(s.size());
-
-        //assertEquals(2,s.size());
-        //assertEquals(new Integer(4), s.peek());
-        //System.out.println(q.size());
-        /*
-        assertFalse(q.isEmpty());
-        q.enqueue(new Integer(4));
-        System.out.println(q.size());
-        //assertEquals(new Integer(4), q.dequeue());
-        System.out.println(q.size());
-        q.enqueue(new Integer(9));
-        System.out.println(q.size());
-        assertEquals(new Integer(4), q.dequeue());
-        assertEquals(new Integer(9), q.peek());
-
-         */
-    }
-    @Test(expected = IllegalArgumentException.class)
-    public void queTest() {
-        q.enqueue(null);
-    }
-    @Test(expected = IllegalArgumentException.class)
-    public void stack1Test() {
-        s.push(null);
-    }
-
     @Test(expected = NullPointerException.class)
     public void que2Test() {
         t.add(new Integer(1));
@@ -184,7 +103,5 @@ public class DoublyLinkedListTest {
     public void clear() {
     }
 
-    @Test
-    public void contains() {
-    }
+
 }
