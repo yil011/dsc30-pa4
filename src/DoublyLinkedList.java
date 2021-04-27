@@ -132,17 +132,24 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
         if (element == null) {
             throw new NullPointerException();
         }
-        Node temp = new Node(element);
-        if(this.head == null) {
+        if(this.nelems == 0) {
+            /*
+            Node temp = new Node(element);
             this.head.setNext(temp);
             temp.setNext(this.tail);
             this.tail.setPrev(temp);
             this.tail.setNext(null);
             nelems++;
+             */
+            Node temp = new Node(element,this.tail,this.head);
+            this.head.setNext(temp);
+            this.tail.setPrev(temp);
+            nelems++;
             // implementation of adding the new data
             return true;
         } else {
-            this.head.setNext(temp);
+            Node temp = new Node(element,this.tail,this.tail.getPrev());
+            this.tail.getPrev().setNext(temp);
             this.tail.setPrev(temp);
             nelems++;
             return true;
@@ -170,15 +177,23 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
             throw new NullPointerException();
         }
         // implementation of adding the new data
-        Node temp = new Node(element);
-        if (this.head.getElement() == null) {
+        if (this.nelems == 0 && index == 0) {
+            Node temp = new Node(element,this.tail,this.head);
+            this.head.setNext(temp);
+            this.tail.setPrev(temp);
+            nelems++;
+            /*
             this.head.setNext(temp);
             temp.setNext(this.tail);
+            this.tail.setPrev(temp);
             this.tail.setNext(null);
             nelems++;
+
+             */
         } else {
+            Node temp = new Node(element);
             Node nodeCur = this.head;
-            for (int i = 1; i < index; i++)
+            for (int i = 0; i < index; i++)
                 nodeCur  = nodeCur .getNext();
             // nodeCur points to the node before the insert point
             temp.setNext(nodeCur .getNext());
@@ -197,8 +212,6 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
     public void clear() {
         this.head.setNext(this.tail);
         this.tail.setPrev(this.head);
-        this.head.setPrev(null);
-        this.tail.setNext(null);
         this.nelems = 0;
     }
 
@@ -213,9 +226,9 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
         T data = (T)element;
         // TODO: Fill in implementation
         Node nodeCur = this.head;
-        for (int i = 1; i < this.nelems; i++) {
+        for (int i = 0; i < this.nelems; i++) {
             nodeCur  = nodeCur .getNext();
-            if (element.equals(nodeCur)) {
+            if (element.equals(nodeCur.getElement())) {
                 return true;
             }
         }
@@ -235,11 +248,9 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
         }
         // TODO: Fill in implementation to get the node at index
         Node nodeCur = this.head;
-        for (int i = 1; i < index; i++) {
-            nodeCur  = nodeCur .getNext();
-        }
+        T result = getNth(index).getElement();
         // nodeCur points to the node before the insert point
-        return nodeCur.getElement();
+        return result;
     }
 
     /**
@@ -250,7 +261,7 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
     private Node getNth(int index) {
         // TODO: Fill in implementation to get the node at index
         Node nodeCur = this.head;
-        for (int i = 1; i < index; i++) {
+        for (int i = 0; i < index+1; i++) {
             nodeCur  = nodeCur .getNext();
         }
         // nodeCur points to the node before the insert point
@@ -279,7 +290,7 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
         }
         // TODO: Fill in implementation to get the node at index
         Node nodeCur = this.head;
-        for (int i = 0; i < index; i++) {
+        for (int i = 0; i < index+1; i++) {
             nodeCur  = nodeCur .getNext();
         }
         // nodeCur points to the node before the insert point
@@ -298,28 +309,33 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
     @Override
     public T set(int index, T element)
             throws IndexOutOfBoundsException, NullPointerException {
-        if (index < 0 || index > this.nelems) {
+        if (index < 0 || index > this.nelems || this.nelems == 0) {
             throw new IndexOutOfBoundsException();
         }
         if (element == null) {
             throw new NullPointerException();
         }
         Node temp = new Node(element);
-        if (this.head.getElement() == null) {
+        /*
+        if (this.nelems == 0) {
             this.head.setNext(temp);
+            temp.setPrev(this.head);
             temp.setNext(this.tail);
+            this.tail.setPrev(temp);
             this.tail.setNext(null);
             nelems++;
             return null;
         } else {
+
+         */
             Node nodeCur = this.head;
-            for (int i = 1; i < index; i++)
+            for (int i = 0; i < index+1; i++)
                 nodeCur  = nodeCur .getNext();
             // nodeCur points to the node before the insert point
             T oldN = nodeCur.getElement();
             nodeCur.setElement(element);
             return oldN;
-        }
+
     }
 
     /**
@@ -345,15 +361,21 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
             temp.add("(head) -> (tail)");
             return temp.toString();
         } else {
+            String result = "";
             Node nodeCur = this.head;
-            temp.add("(head) ->");
-            for (int i = 1; i < this.nelems; i++) {
+            temp.add("[(head) -> ");
+            for (int i = 0; i < this.nelems; i++) {
+                nodeCur = nodeCur.getNext();
                 String nodeData =
-                        nodeCur.getNext().getElement().toString();
+                        nodeCur.getElement().toString();
                 temp.add(nodeData + " -> ");
             }
-            temp.add("(tail)");
-            return temp.toString();
+            temp.add("(tail)]");
+            for (String ele: temp) {
+                result += ele;
+            }
+            //return temp.toString();
+            return result;
         }
     }
 
