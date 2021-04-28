@@ -12,7 +12,7 @@ public class RoundRobin {
 
     /* constants */
     private static final String TASK_HANDLED = "All tasks are already handled.";
-
+    private static final int STANDARD_QUANTA = 4;
     /* instance variables */
     private DoublyLinkedList<Task> waitlist, finished;
     private int quantum, burstTime, waitTime;
@@ -21,10 +21,11 @@ public class RoundRobin {
      */
     public RoundRobin(Task[] toHandle) {
         // call another constructor
-        this(4, toHandle);
+        this(STANDARD_QUANTA , toHandle);
     }
     /**
      * Constructor of RoundRobin
+     *
      * @param quantum the size of quantum
      * @param toHandle the task list
      * @throws IllegalArgumentException if quantum is less than
@@ -46,6 +47,7 @@ public class RoundRobin {
     }
     /**
      * A method that handles all tasks
+     *
      * @return String return a string with burst time,
      * wait time and the list of task information
      */

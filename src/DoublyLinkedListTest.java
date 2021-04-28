@@ -6,11 +6,15 @@ import static org.junit.Assert.*;
 public class DoublyLinkedListTest {
     //global variables
     AbstractList<Integer> t;
+    AbstractList<Boolean> t1;
+    AbstractList<String> t2;
 
     @Before
     public void setUp() {
 
         t = new DoublyLinkedList();
+        t1 = new DoublyLinkedList();
+        t2 = new DoublyLinkedList();
 
     }
     @org.junit.Test
@@ -100,8 +104,77 @@ public class DoublyLinkedListTest {
     }
 
     @org.junit.Test
-    public void clear() {
+    public void t1Test() {
+        t1.add(true);
+        assertFalse(t1.isEmpty());
     }
 
+
+    @Test
+    public void swapSegment() {
+        DoublyLinkedList<Integer> t4 =  new DoublyLinkedList<Integer>();
+        DoublyLinkedList<Integer> t5 =  new DoublyLinkedList<Integer>();
+        t4.add(new Integer(0));
+        t4.add(new Integer(1));
+        t4.add(new Integer(2));
+        t4.add(new Integer(3));
+        t4.add(new Integer(4));
+        t5.add(new Integer(9));
+        t5.add(new Integer(8));
+        t5.add(new Integer(7));
+        t5.add(new Integer(6));
+        t5.add(new Integer(5));
+        t4.swapSegment(t5, 2);
+        String t4String = "[(head) -> 9 -> 8 -> 7 -> 3 -> 4 -> (tail)]";
+        String t5String = "[(head) -> 0 -> 1 -> 2 -> 6 -> 5 -> (tail)]";
+        System.out.println(t4.toString());
+        System.out.println(t5.toString());
+        assertEquals(new Integer(9), t4.get(0));
+        assertEquals(new Integer(0), t5.get(0));
+        t4.clear();;
+        t5.clear();
+        t4.add(new Integer(0));
+        t4.add(new Integer(1));
+        t4.add(new Integer(2));
+        t4.add(new Integer(3));
+        t4.add(new Integer(4));
+        t5.add(new Integer(9));
+        t5.add(new Integer(8));
+        t5.add(new Integer(7));
+        t5.add(new Integer(6));
+        t5.add(new Integer(5));
+        t4.swapSegment(t5, 1);
+        assertEquals(new Integer(8), t4.get(1));
+        assertEquals(new Integer(1), t5.get(1));
+        t4.swapSegment(t5,3);
+        assertEquals(new Integer(1), t4.get(1));
+        assertEquals(new Integer(8), t5.get(1));
+
+    }
+
+    @Test
+    public void removeMultipleOf() {
+        DoublyLinkedList<Integer> t3 =  new DoublyLinkedList<Integer>();
+        for (int i = 0; i < 10; i++) {
+            t3.add(new Integer(i));
+        }
+        assertEquals(10, t3.size());
+        t3.removeMultipleOf(3);
+        assertEquals(6, t3.size());
+        assertEquals(new Integer(1), t3.get(0));
+        t3.clear();
+        for (int i = 0; i < 10; i++) {
+            t3.add(new Integer(i));
+        }
+        t3.removeMultipleOf(4);
+        assertEquals(7, t3.size());
+        assertEquals(new Integer(3), t3.get(2));
+        t3.clear();
+        for (int i = 0; i < 11; i++) {
+            t3.add(new Integer(i));
+        }
+        t3.removeMultipleOf(5);
+        assertEquals(8, t3.size());
+    }
 
 }

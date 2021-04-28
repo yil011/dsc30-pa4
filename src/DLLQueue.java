@@ -46,9 +46,9 @@ public class DLLQueue<T> {
     }
     /**
      * A method that pops the given data.
-     * Return null of size is 0
+     * Return null if size is 0
      *
-     * @return the element
+     * @return the T element
      */
     public T dequeue() {
         if (this.size() == 0) {

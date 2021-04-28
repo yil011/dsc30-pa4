@@ -132,15 +132,8 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
         if (element == null) {
             throw new NullPointerException();
         }
+        // condition when size is 0
         if (this.nelems == 0) {
-            /*
-            Node temp = new Node(element);
-            this.head.setNext(temp);
-            temp.setNext(this.tail);
-            this.tail.setPrev(temp);
-            this.tail.setNext(null);
-            nelems++;
-             */
             Node temp = new Node(element, this.tail, this.head);
             this.head.setNext(temp);
             this.tail.setPrev(temp);
@@ -148,7 +141,7 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
             // implementation of adding the new data
             return true;
         } else {
-
+            // regular condition
             Node temp = new Node(element, this.tail, this.tail.getPrev());
             this.tail.getPrev().setNext(temp);
             this.tail.setPrev(temp);
@@ -163,6 +156,7 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
      * create room. Does not accept null values.
      *
      * @param element data to be added
+     * @param index the index to add element
      * @return whether or not the element was added
      * @throws IndexOutOfBoundsException if index is out of range
      * @throws NullPointerException if data received is null
@@ -187,6 +181,7 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
             //Node nodeCur = this.head;
             Node nodeCur = new Node(this.head.getElement(),
                     this.head.getNext(), null);
+            // loop over to find node at index
             for (int i = 0; i < index; i++) {
                 nodeCur  = nodeCur .getNext();
             }
@@ -195,6 +190,7 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
             nodeCur.setNext(temp);
             temp.setPrev(nodeCur);
             temp.getNext().setPrev(temp);
+            // change size
             this.nelems++;
         }
 
@@ -219,8 +215,8 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
     @Override
     public boolean contains(Object element) {
         T data = (T) element;
-        //Node nodeCur = this.head;
         Node nodeCur = new Node(this.head.getElement(), this.head.getNext(), null);
+        // loop over to find node at index
         for (int i = 0; i < this.nelems; i++) {
             nodeCur  = nodeCur.getNext();
             if (element.equals(nodeCur.getElement())) {
@@ -253,7 +249,6 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
      * @return node at given index will be returned
      */
     private Node getNth(int index) {
-        //Node nodeCur = this.head;
         Node nodeCur = new Node(this.head.getElement(),
                 this.head.getNext(), null);
         for (int i = 0; i < index + 1; i++) {
@@ -289,6 +284,7 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
         // set current node
         Node nodeCur = new Node(this.head.getElement(),
                 this.head.getNext(), null);
+        // loop over to find node at index
         for (int i = 0; i < index + 1; i++) {
             nodeCur  = nodeCur.getNext();
         }
@@ -322,6 +318,7 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
         // create temporary node
         Node temp = new Node(element);
         Node nodeCur = this.head;
+        // loop over to find node at index
         for (int i = 0; i < index + 1; i++) {
             nodeCur  = nodeCur.getNext();
         }
@@ -350,6 +347,7 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
     @Override
     public String toString() {
         ArrayList<String> temp = new ArrayList<>();
+        // check condition when size is 0
         if (this.nelems == 0) {
             temp.add("(head) -> (tail)");
             return temp.toString();
@@ -357,6 +355,7 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
             String result = "";
             Node nodeCur = this.head;
             temp.add("[(head) -> ");
+            // loop over to find node at index and add to string
             for (int i = 0; i < this.nelems; i++) {
                 nodeCur = nodeCur.getNext();
                 String nodeData =
@@ -364,6 +363,7 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
                 temp.add(nodeData + " -> ");
             }
             temp.add("(tail)]");
+            // final string to return
             for (String ele: temp) {
                 result += ele;
             }
@@ -376,23 +376,59 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
     /**
      * Remove nodes whose index is a multiple of base
      *
-     * TODO: javadoc comments
+     * @throws IllegalArgumentException if int base < 1
+     * @param base the base index
      */
     public void removeMultipleOf(int base) {
-        // TODO: complete implementation       
+        //check for exception
+        if (base < 1) {
+            throw new IllegalArgumentException();
+        }
+        // get the head node
+        Node nodeCur = new Node(this.head.getElement(),
+                this.head.getNext(), null);
+        int totalNum = this.nelems;
+        for (int i = 0; i < totalNum; i++) {
+            /*
+            try {
+                nodeCur = nodeCur.getNext();
+            } catch (NullPointerException e) {
+                System.out.println(e.getMessage());
+            }
+            if (i % base == 0) {
+                System.out.println(nodeCur.getElement());
+                nodeCur.remove();
+            }
+        } */
+            if (nodeCur.getNext() != null) {
+                nodeCur = nodeCur.getNext();
+            }
+            if (i % base == 0) {
+                //System.out.println(nodeCur.getElement());
+                nodeCur.remove();
+                this.nelems--;
+            }
+        }
     }
 
     /**
      * Swap the nodes between index [0, splitIndex] of two lists
      *
-     * TODO: javadoc comments
+     * @param other another list
+     * @param splitIndex the index to split
      */
     public void swapSegment(DoublyLinkedList other, int splitIndex) {
-        // TODO: complete implementation
+        Node nodeCur = new Node(this.head.getElement(),
+                this.head.getNext(), null);
+        // use temp T to exchange the nodes
+        for (int i = 0; i <= splitIndex; i++) {
+            T temp = this.get(i);
+            this.set(i, (T) other.get(i));
+            other.set(i, temp);
+        }
+
     }
     public void main (String[] args) {
-        DoublyLinkedList t = new DoublyLinkedList();
-        System.out.println(t.size());
     }
 
 }
